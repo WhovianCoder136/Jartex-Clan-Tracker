@@ -111,4 +111,4 @@ This turned a missing-data problem into an explicit, inspectable trust model ins
 
 ## Author
 
-Built and maintained by [M Ajay Kumar and Amogh Amarapur](#) — a personal project combining async Python, third-party API integration under real constraints, and SQLite-backed state management.
+Built and maintained by M Ajay Kumar & Amogh Amarapur — a personal project combining async Python, third-party API integration under real constraints, and SQLite-backed state management.
