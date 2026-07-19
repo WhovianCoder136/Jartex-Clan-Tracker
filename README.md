@@ -4,13 +4,26 @@ A Discord bot that watches trophy and roster changes across multiple JartexNetwo
 
 ## What it does
 
-- Polls JartexNetwork's stats API every 2 minutes for each tracked clan's trophy count, level, and member roster
-- Polls JartexNetwork's stats API every 1 minute for each tracked clan's trophy count, level, and member roster
+- Polls JartexNetwork's stats API every minute for each tracked clan's trophy count, level, and member roster
 - Posts a rich embed the moment trophies change (gain/loss) or someone joins/leaves
 - Posts a daily recap per clan at midnight UTC — trophy delta, level change, and net roster movement for the day
 - Supports tracking multiple clans at once, each routable to its own Discord channel
 - Resolves a "leaderboard rank" for each clan even though the source API has no such field — see [The rank problem](#the-rank-problem-and-how-it-was-solved) below
 - Persists everything in SQLite, so state survives restarts
+
+## Screenshots
+
+**Live trophy/roster update** — posted the moment a tracked clan's trophies or roster change:
+
+![Roster update embed](assets/roster_update_embed.png)
+
+**`/clan_leaderboard`** — trophy-sorted leaderboard across every tracked clan:
+
+![Clan leaderboard](assets/clan_leaderboard.png)
+
+**Slash commands** — full admin/tracking command set, as seen in Discord:
+
+![Command list](assets/commands_list.png)
 
 ## Tech stack
 
@@ -56,7 +69,7 @@ python bot.py
 ## Architecture
 
 ```
-poll_trophies()  ──every 2 min──▶  fetch_clan_data()  ──▶  JartexNetwork API
+poll_trophies()  ──every 1 min──▶  fetch_clan_data()  ──▶  JartexNetwork API
       │                                                       │
       ▼                                                       ▼
 _handle_clan_result()  ◀── diff against last-known state (SQLite)
@@ -98,5 +111,4 @@ This turned a missing-data problem into an explicit, inspectable trust model ins
 
 ## Author
 
-Built and maintained by M Ajay Kumar and Amogh Amarapur(#) — a personal project combining async Python, third-party API integration under real constraints, and SQLite-backed state management.
-Built and maintained by [Patil](#) — a personal project combining async Python, third-party API integration under real constraints, and SQLite-backed state management.
+Built and maintained by [M Ajay Kumar and Amogh Amarapur](#) — a personal project combining async Python, third-party API integration under real constraints, and SQLite-backed state management.
