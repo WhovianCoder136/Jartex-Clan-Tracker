@@ -4,7 +4,7 @@ A Discord bot that watches trophy and roster changes across multiple JartexNetwo
 
 ## What it does
 
-- Polls JartexNetwork's stats API every 2 minutes for each tracked clan's trophy count, level, and member roster
+- Polls JartexNetwork's stats API every 1 minute for each tracked clan's trophy count, level, and member roster
 - Posts a rich embed the moment trophies change (gain/loss) or someone joins/leaves
 - Posts a daily recap per clan at midnight UTC — trophy delta, level change, and net roster movement for the day
 - Supports tracking multiple clans at once, each routable to its own Discord channel
